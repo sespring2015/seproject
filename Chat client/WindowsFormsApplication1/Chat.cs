@@ -25,15 +25,20 @@ namespace Chat_client
         
         private void button1_Click(object sender, EventArgs e)
         {
-            byte[] outStream = System.Text.Encoding.ASCII.GetBytes(textBox1.Text + "$");
-            serverStream.Write(outStream, 0, outStream.Length);
-            serverStream.Flush();
+            if (!connBtn.Enabled)
+            {
+                byte[] outStream = System.Text.Encoding.ASCII.GetBytes(textBox1.Text + "$");
+                serverStream.Write(outStream, 0, outStream.Length);
+                serverStream.Flush();
+                textBox1.Text = "";
+            }
         }
 
        private void button2_Click(object sender, EventArgs e)
         {
 
-
+            if (textBox3.Text != "")
+            {
                 connBtn.Enabled = false;
                 readData = "Conected to Chat Server ...";
                 msg();
@@ -46,7 +51,7 @@ namespace Chat_client
                 Thread ctThread = new Thread(getMessage);
                 ctThread.IsBackground = true;
                 ctThread.Start();
-                
+            }
             
           
             
@@ -73,7 +78,7 @@ namespace Chat_client
            if (this.InvokeRequired)
                this.Invoke(new MethodInvoker(msg));
            else
-                textBox2.Text = textBox2.Text + Environment.NewLine + ">>" + readData;
+                textBox2.Text = "\n"+ textBox2.Text + Environment.NewLine + ">>" + readData ;
         }
 
         private void Chat_Load(object sender, EventArgs e)
