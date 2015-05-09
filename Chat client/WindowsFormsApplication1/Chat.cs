@@ -27,10 +27,16 @@ namespace Chat_client
         {
             if (!connBtn.Enabled)
             {
-                byte[] outStream = System.Text.Encoding.ASCII.GetBytes(textBox1.Text + "$");
-                serverStream.Write(outStream, 0, outStream.Length);
-                serverStream.Flush();
-                textBox1.Text = "";
+                try
+                {
+                    byte[] outStream = System.Text.Encoding.ASCII.GetBytes(textBox1.Text + "$");
+                    serverStream.Write(outStream, 0, outStream.Length);
+                    serverStream.Flush();
+                    textBox1.Text = "";
+                }
+                catch(Exception exx){
+                
+                }
             }
         }
 
@@ -39,10 +45,13 @@ namespace Chat_client
 
             if (textBox3.Text != "")
             {
+                
+                try {
+                clientSocket.Connect("127.0.0.1", 8888);
                 connBtn.Enabled = false;
                 readData = "Conected to Chat Server ...";
                 msg();
-                clientSocket.Connect("127.0.0.1", 8888);
+
                 serverStream = clientSocket.GetStream();
 
                 byte[] outStream = System.Text.Encoding.ASCII.GetBytes(textBox3.Text + "$");
@@ -51,6 +60,12 @@ namespace Chat_client
                 Thread ctThread = new Thread(getMessage);
                 ctThread.IsBackground = true;
                 ctThread.Start();
+            }
+                catch(Exception ex){
+                    MessageBox.Show ("Server Not Available");
+                    
+                }
+
             }
             
           

@@ -7,3 +7,5 @@ C:\Users\Trojan\Documents\Visual Studio 2013\Projects\ChatServer\ConsoleApplicat
 C:\Users\Trojan\Documents\Visual Studio 2013\Projects\ChatServer\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
 C:\Users\Trojan\Documents\Visual Studio 2013\Projects\ChatServer\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
 C:\Users\Trojan\Documents\Visual Studio 2013\Projects\ChatServer\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Trojan\Documents\Visual Studio 2013\Projects\SEPROJECT\ChatServer\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\Trojan\Documents\Visual Studio 2013\Projects\SEPROJECT\ChatServer\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
